@@ -1,3 +1,3 @@
-# Ian Kim Portfolio
+#My Personal Portfolio
 
-Portfolio site built with Astro
+Built with Astro :)

@@ -1,0 +1,54 @@
+---
+const sections = [
+  { id: 'projects', label: 'Projects' },
+  { id: 'employment', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'honors', label: 'Honors' },
+  { id: 'skills', label: 'Skills' },
+];
+---
+
+<nav class="nav">
+  <div class="nav-container">
+    <ul class="nav-links">
+      {sections.map((section, index) => (
+        <li>
+          <button
+            class="nav-tab"
+            data-tab={section.id}
+            aria-controls={section.id}
+          >
+            {section.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initTabs() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.nav-tab');
+    const sections = document.querySelectorAll<HTMLElement>('.tab-content');
+
+    function switchTab(targetId: string) {
+      sections.forEach((section) => {
+        section.hidden = section.id !== targetId;
+      });
+      tabs.forEach((tab) => {
+        tab.classList.toggle('active', tab.dataset.tab === targetId);
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        if (tab.dataset.tab) switchTab(tab.dataset.tab);
+      });
+    });
+
+    // Default to projects tab
+    switchTab('projects');
+  }
+
+  initTabs();
+</script>

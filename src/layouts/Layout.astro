@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const description = "Ian Kim is an incoming University of Chicago student studying computational and applied mathematics and computer science, with interests in machine learning, research, teaching, and leadership.";
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon-96x96.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Ian Kim" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="canonical" href={canonicalURL} />
+		<title>{title}</title>
+		<meta name="author" content="Ian Kim" />
+		<meta name="description" content={description} />
+		<meta name="keywords" content="Ian Kim, University of Chicago, computational and applied mathematics, computer science, machine learning, research, Mathnasium, FBLA economics, Korean-American research" />
+		<meta name="robots" content="index, follow" />
+		<meta name="google" content="notranslate" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content="Ian Kim - Computational Math & CS" />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/ian_kim.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content="Ian Kim - Computational Math & CS" />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/ian_kim.jpg" />
+
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Ian Kim",
+			"url": "https://github.com/ianjkim08",
+			"image": "/ian_kim.jpg",
+			"jobTitle": "Student",
+			"description": "Incoming University of Chicago student studying computational and applied mathematics and computer science.",
+			"alumniOf": {
+				"@type": "CollegeOrUniversity",
+				"name": "Jordan High School"
+			},
+			"worksFor": [
+				{
+					"@type": "Organization",
+					"name": "University of Chicago"
+				}
+			],
+			"sameAs": [
+				"https://github.com/ianjkim08",
+				"https://linkedin.com/in/ianjkim08"
+			],
+			"knowsAbout": ["Computer Science", "Computational Mathematics", "Machine Learning", "Python", "Java", "Statistics", "Research"]
+		})} />
+
+		<script is:inline>
+			(function() {
+				var s = localStorage.getItem('theme');
+				var d = s ? s === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+				if (d) document.documentElement.setAttribute('data-theme', 'dark');
+			})();
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

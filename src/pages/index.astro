@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PortfolioContent from '../components/PortfolioContent.astro';
+import { projects, employment, education, honors, skills, socialLinks, about } from '../data/portfolio';
+---
+<Layout title="Ian Kim - Computational Math & CS">
+	<main class="app">
+		<PortfolioContent
+			projects={projects}
+			employment={employment}
+			education={education}
+			honors={honors}
+			skills={skills}
+			socialLinks={socialLinks}
+			about={about}
+		/>
+	</main>
+</Layout>

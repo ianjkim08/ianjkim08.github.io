@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ian Kim monogram</title>
+  <desc id="desc">A bold IK monogram in a brutalist square style.</desc>
+  <rect width="900" height="900" fill="#fffdf5"/>
+  <rect x="196" y="196" width="590" height="590" fill="#000"/>
+  <rect x="164" y="164" width="590" height="590" fill="#fce7f3" stroke="#000" stroke-width="10"/>
+  <rect x="132" y="132" width="590" height="590" fill="#ff6b6b" stroke="#000" stroke-width="10"/>
+  <rect x="205" y="205" width="490" height="490" fill="#fffdf5" stroke="#000" stroke-width="8"/>
+  <text x="450" y="510" font-family="Arial Black, Arial, sans-serif" font-size="260" font-weight="900" fill="#ff6b6b" text-anchor="middle">IK</text>
+  <text x="442" y="502" font-family="Arial Black, Arial, sans-serif" font-size="260" font-weight="900" fill="#000" text-anchor="middle">IK</text>
+  <text x="450" y="620" font-family="Arial, sans-serif" font-size="52" font-weight="900" letter-spacing="6" fill="#000" text-anchor="middle">IAN KIM</text>
+</svg>

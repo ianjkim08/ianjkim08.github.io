@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for Kenneth Liu, built with Astro 5 and deployed to GitHub Pages via GitHub Actions.
+Personal portfolio website built with Astro 5 and deployed to GitHub Pages via GitHub Actions.
 
 ## Commands
 

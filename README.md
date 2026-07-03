@@ -1,3 +1,3 @@
-#My Personal Portfolio
+# My Personal Portfolio
 
 Built with Astro :)

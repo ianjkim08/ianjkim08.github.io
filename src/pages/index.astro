@@ -4,6 +4,9 @@ import PortfolioContent from '../components/PortfolioContent.astro';
 import { projects, employment, education, honors, skills, socialLinks, about } from '../data/portfolio';
 ---
 <Layout title="Ian Kim - Computational Math & CS">
+	<div class="boot-overlay" aria-hidden="true">
+		<span>[ booting portfolio ]</span>
+	</div>
 	<main class="app">
 		<PortfolioContent
 			projects={projects}

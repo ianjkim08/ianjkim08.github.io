@@ -110,7 +110,16 @@ const { projects, employment, education, honors, skills, socialLinks, about } = 
       <span class="shelf-object shelf-object-book"><i aria-hidden="true"></i><strong>Author</strong> J.R.R. Tolkien</span>
       <span class="shelf-object shelf-object-record"><i aria-hidden="true"></i><strong>Music</strong> Deep house</span>
       <span class="shelf-object shelf-object-ticket"><i aria-hidden="true"></i><strong>Food</strong> Sushi</span>
-      <span class="shelf-object shelf-object-cartridge"><i aria-hidden="true"></i><strong>Game</strong> Ocarina of Time</span>
+      <span class="shelf-object shelf-object-cartridge">
+        <i aria-hidden="true"></i><strong>Game</strong> Ocarina of Time
+        <span class="ocarina-notes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </span>
     </div>
   </div>
 
@@ -327,4 +336,38 @@ const { projects, employment, education, honors, skills, socialLinks, about } = 
   }
 
   initTheme();
+
+  function initKonamiNotes() {
+    const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    const gameShelfItem = document.querySelector<HTMLElement>('.shelf-object-cartridge');
+    let progress = 0;
+    let resetTimer: number | undefined;
+    let activeTimer: number | undefined;
+
+    if (!gameShelfItem) return;
+
+    window.addEventListener('keydown', (event) => {
+      const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+      progress = key === sequence[progress] ? progress + 1 : key === sequence[0] ? 1 : 0;
+
+      window.clearTimeout(resetTimer);
+      resetTimer = window.setTimeout(() => {
+        progress = 0;
+      }, 1800);
+
+      if (progress !== sequence.length) return;
+
+      progress = 0;
+      gameShelfItem.classList.remove('is-ocarina-active');
+      void gameShelfItem.offsetWidth;
+      gameShelfItem.classList.add('is-ocarina-active');
+
+      window.clearTimeout(activeTimer);
+      activeTimer = window.setTimeout(() => {
+        gameShelfItem.classList.remove('is-ocarina-active');
+      }, 4200);
+    });
+  }
+
+  initKonamiNotes();
 </script>

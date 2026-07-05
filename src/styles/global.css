@@ -121,6 +121,29 @@ button {
   align-items: flex-start;
   justify-content: center;
   padding: 2rem;
+  position: relative;
+  animation: appBootSettle 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.app::before {
+  content: "[ booting portfolio ]";
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(90deg, transparent 49%, color-mix(in srgb, var(--border) 22%, transparent) 50%, transparent 51%) 0 0 / 28px 28px,
+    linear-gradient(0deg, transparent 49%, color-mix(in srgb, var(--border) 22%, transparent) 50%, transparent 51%) 0 0 / 28px 28px,
+    var(--bg-primary);
+  color: var(--accent);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: bootScreen 0.46s steps(5, end) forwards;
 }
 
 .folder {
@@ -393,6 +416,7 @@ button {
 }
 
 .coordinate-strip {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -408,10 +432,64 @@ button {
   font-weight: 800;
   line-height: 1.2;
   text-transform: uppercase;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.coordinate-strip:hover,
+.coordinate-strip:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--section-accent);
+}
+
+.coordinate-strip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .coordinate-strip span:last-child {
+  position: relative;
+  display: inline-grid;
+  justify-items: end;
   color: var(--section-accent);
+  min-width: min(21rem, 54vw);
+  overflow: hidden;
+}
+
+.coordinate-strip span:last-child::before,
+.coordinate-strip span:last-child::after {
+  grid-area: 1 / 1;
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.22s ease;
+}
+
+.coordinate-strip span:last-child::before {
+  content: "mapping systems, models, and histories";
+}
+
+.coordinate-strip span:last-child::after {
+  content: attr(data-reveal);
+  opacity: 0;
+  transform: translateY(0.7rem);
+}
+
+.coordinate-strip:hover span:last-child::before,
+.coordinate-strip:focus-visible span:last-child::before {
+  opacity: 0;
+  transform: translateY(-0.7rem);
+}
+
+.coordinate-strip:hover span:last-child::after,
+.coordinate-strip:focus-visible span:last-child::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.coordinate-strip span:last-child {
+  font-size: 0;
+}
+
+.coordinate-strip span:last-child::before,
+.coordinate-strip span:last-child::after {
+  font-size: 0.72rem;
 }
 
 .personal-shelf {
@@ -815,16 +893,52 @@ button {
   }
 }
 
+@keyframes appBootSettle {
+  0% {
+    opacity: 0.92;
+    transform: translateY(5px) scale(0.994);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bootScreen {
+  0% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  70% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .app,
+  .app::before,
   .nav-tab,
   .folder-body,
   .tab-content:not([hidden]),
   .honor-sticker,
   .folder-body.is-switching,
   .folder-body.is-switching::before,
-  .folder-body.is-switching::after {
+  .folder-body.is-switching::after,
+  .coordinate-strip,
+  .coordinate-strip span:last-child::before,
+  .coordinate-strip span:last-child::after {
     animation: none;
     transition: none;
+  }
+
+  .app::before {
+    content: none;
   }
 }
 
@@ -1658,6 +1772,16 @@ button {
     padding: 0.3rem 0.42rem;
     font-size: 0.58rem;
     box-shadow: 2px 2px 0 var(--shadow-color);
+  }
+
+  .coordinate-strip span:last-child {
+    justify-items: start;
+    min-width: 100%;
+  }
+
+  .coordinate-strip span:last-child::before,
+  .coordinate-strip span:last-child::after {
+    font-size: 0.58rem;
   }
 
   .personal-shelf {

@@ -55,6 +55,7 @@ export const projects: Project[] = [
     tags: ["PyTorch", "Hugging Face", "Transformers", "NLI"],
     type: "AI Research",
     motif: "model-trace",
+    githubUrl: "https://github.com/aiea-lab",
     projectUrl: "https://aiea-lab.github.io/",
   },
   {

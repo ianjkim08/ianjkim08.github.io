@@ -122,7 +122,7 @@ button {
   justify-content: center;
   padding: 2rem;
   position: relative;
-  animation: appBootSettle 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: appBootSettle 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .app::before {
@@ -138,12 +138,14 @@ button {
     var(--bg-primary);
   color: var(--accent);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.72rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   pointer-events: none;
-  animation: bootScreen 0.46s steps(5, end) forwards;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+  animation: bootScreen 1.05s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  box-shadow: inset 0 0 0 2px var(--border), inset 0 0 0 10px color-mix(in srgb, var(--bg-card) 35%, transparent);
 }
 
 .folder {
@@ -895,11 +897,12 @@ button {
 
 @keyframes appBootSettle {
   0% {
-    opacity: 0.92;
-    transform: translateY(5px) scale(0.994);
+    transform: translateY(7px) scale(0.992);
+  }
+  58% {
+    transform: translateY(7px) scale(0.992);
   }
   100% {
-    opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
@@ -909,7 +912,11 @@ button {
     opacity: 1;
     clip-path: inset(0 0 0 0);
   }
-  70% {
+  18% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  76% {
     opacity: 1;
     clip-path: inset(0 0 0 0);
   }

@@ -291,7 +291,12 @@ export const skills: SkillCategory[] = [
           "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
       },
       {
-        name: "Data Science",
+        name: "Elements of Data Science",
+        iconUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      },
+      {
+        name: "Computing in Python I-II",
         iconUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
       },

@@ -100,7 +100,7 @@ export const projects: Project[] = [
 
 export const employment: Employment[] = [
   {
-    title: "Research Assistant",
+    title: "Machine Learning Research Intern",
     company: "University of California, Santa Cruz AIEA Laboratory",
     date: "June 2026 - Present",
     description:

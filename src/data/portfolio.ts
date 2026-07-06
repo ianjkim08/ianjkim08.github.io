@@ -302,8 +302,7 @@ export const skills: SkillCategory[] = [
       },
       {
         name: "Proof-Based Honors Calculus I-III",
-        iconUrl:
-          "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/sigma.svg",
+        iconUrl: "/math-sigma.svg",
       },
       {
         name: "Cloud Computing",

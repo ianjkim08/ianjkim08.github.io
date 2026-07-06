@@ -301,6 +301,11 @@ export const skills: SkillCategory[] = [
           "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
       },
       {
+        name: "Proof-Based Honors Calculus I-III",
+        iconUrl:
+          "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/sigma.svg",
+      },
+      {
         name: "Cloud Computing",
         iconUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",

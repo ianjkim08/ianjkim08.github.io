@@ -1682,17 +1682,18 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  align-items: center;
+  align-items: start;
 }
 
 .skill-item-icon {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 56px minmax(2.65rem, auto);
+  justify-items: center;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 80px;
+  width: 112px;
 }
 
 .skill-icon {
@@ -1720,12 +1721,17 @@ button {
 }
 
 .skill-item-icon span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
   font-weight: 700;
   font-size: 0.7rem;
   text-align: center;
   background: var(--text-primary);
   color: var(--bg-primary);
-  padding: 0.1rem 0.3rem;
+  padding: 0.16rem 0.36rem;
+  line-height: 1.25;
 }
 
 /* Hover utilities */
@@ -2156,7 +2162,8 @@ button {
   }
 
   .skill-item-icon {
-    width: 60px;
+    grid-template-rows: 44px minmax(2.2rem, auto);
+    width: 78px;
     gap: 0.3rem;
   }
 
@@ -2173,6 +2180,8 @@ button {
 
   .skill-item-icon span {
     font-size: 0.55rem;
+    min-height: 2.2rem;
+    padding: 0.14rem 0.24rem;
   }
 
   .site-signature {

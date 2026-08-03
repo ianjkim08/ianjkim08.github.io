@@ -12,16 +12,18 @@ interface Project {
 interface Job {
   title: string;
   company: string;
+  location: string;
   date: string;
-  description: string;
+  details: string[];
   url?: string;
 }
 
 interface EducationItem {
   title: string;
   school: string;
+  location?: string;
   date: string;
-  description: string;
+  details: Array<{ label: string; value: string }>;
 }
 
 interface Honor {
@@ -184,18 +186,19 @@ const { projects, employment, education, honors, skills, socialLinks, about } = 
       <div class="timeline">
         {employment.map((job) => (
           <div class="timeline-item">
-            <div class="timeline-item-header">
+            <div class="resume-heading-row">
               <h3>{job.title}</h3>
-              {job.url && (
-                <a href={job.url} target="_blank" rel="noopener noreferrer" class="timeline-visit-link hover-scale-sm">
-                  Visit
-                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"/></svg>
-                </a>
-              )}
+              <div class="date">{job.date}</div>
             </div>
-            <div class="company">{job.company}</div>
-            <div class="date">{job.date}</div>
-            <p>{job.description}</p>
+            <div class="resume-subheading-row">
+              <div class="company">
+                {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer">{job.company}</a> : job.company}
+              </div>
+              <div class="location">{job.location}</div>
+            </div>
+            <ul class="resume-details">
+              {job.details.map((detail) => <li>{detail}</li>)}
+            </ul>
           </div>
         ))}
       </div>
@@ -205,10 +208,19 @@ const { projects, employment, education, honors, skills, socialLinks, about } = 
       <div class="timeline">
         {education.map((item) => (
           <div class="timeline-item">
-            <h3>{item.title}</h3>
-            <div class="company">{item.school}</div>
-            {item.date && <div class="date">{item.date}</div>}
-            <p>{item.description}</p>
+            <div class="resume-heading-row">
+              <h3>{item.school}</h3>
+              {item.location && <div class="location">{item.location}</div>}
+            </div>
+            <div class="resume-subheading-row education-degree-row">
+              <div class="degree">{item.title}</div>
+              {item.date && <div class="date">{item.date}</div>}
+            </div>
+            <ul class="resume-details education-details">
+              {item.details.map((detail) => (
+                <li><strong>{detail.label}:</strong> {detail.value}</li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

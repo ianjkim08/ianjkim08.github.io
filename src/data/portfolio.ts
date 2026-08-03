@@ -49,6 +49,25 @@ export interface SocialLinks {
 
 export const projects: Project[] = [
   {
+    title: "Deterministic Low-Latency Matching Engine",
+    description:
+      "Engineered a single-writer limit-order-book supporting limit, market, IOC, and FOK orders with price-time priority, preallocated storage, fixed-capacity order indexing, journaling, snapshots, and deterministic replay. Built a nonblocking Linux epoll TCP gateway and benchmarked 17.70M orders/sec median across nine CPU-pinned 20M-operation trials, with correctness verified through differential testing, malformed-frame testing, sanitizers, and CI.",
+    tags: ["C++20", "CMake", "Linux epoll", "SPSC"],
+    type: "Systems Engine",
+    motif: "order-book",
+    githubUrl: "https://github.com/ianjkim08/deterministic-matching-engine",
+  },
+  {
+    title: "Crash-Resilient Sharded Time-Series Engine",
+    description:
+      "Built a sharded time-series storage engine with independent write-ahead logs, atomic manifests, immutable segments, indexed tag and regex queries, bounded subscriptions, and disk-aware multi-level compaction. Designed a durable primary-replica protocol with global log positions, contiguous progress watermarks, offline replica catch-up, and checkpoint-based replication-journal garbage collection, validated by 47 tests and process-level crash and fault injection.",
+    tags: ["C++20", "CMake", "TCP/IP", "Replication"],
+    type: "Storage Engine",
+    motif: "sharded-log",
+    githubUrl:
+      "https://github.com/ianjkim08/crash-resilient-sharded-time-series-engine",
+  },
+  {
     title: "UC Santa Cruz AIEA Lab",
     description:
       "Researching large language model interpretability at the UCSC AIEA Laboratory by reproducing published experiments, analyzing neuron-level representations, and evaluating transformer models on NLI benchmarks.",
@@ -320,4 +339,4 @@ export const socialLinks: SocialLinks = {
 };
 
 export const about =
-  "I'm a math and computer science student at UChicago with an interest in quantitative research, AI, and machine learning. I also love competitive programming, data analysis, high fantasy, and history.";
+  "I'm a math and computer science student at UChicago with an interest in quantitative research, AI, and machine learning.";

@@ -11,16 +11,18 @@ export interface Project {
 export interface Employment {
   title: string;
   company: string;
+  location: string;
   date: string;
-  description: string;
+  details: string[];
   url?: string;
 }
 
 export interface Education {
   title: string;
   school: string;
+  location?: string;
   date: string;
-  description: string;
+  details: Array<{ label: string; value: string }>;
 }
 
 export interface Honor {
@@ -121,55 +123,68 @@ export const employment: Employment[] = [
   {
     title: "Machine Learning Research Intern",
     company: "University of California, Santa Cruz AIEA Laboratory",
-    date: "June 2026 - Present",
-    description:
-      "Conducting research under Dr. Leilani Gilpin on LLM interpretability, reproducing published experiments, analyzing neuron-level representations with PyTorch and Hugging Face, and fine-tuning transformer models on NLI benchmarks using GPU computing and reproducible machine learning workflows.",
+    location: "Santa Cruz, CA",
+    date: "June 2026 – Present",
+    details: [
+      "Conducting research under Dr. Leilani Gilpin on large language model (LLM) interpretability, reproducing published experiments, and analyzing neuron-level representations using PyTorch and Hugging Face.",
+      "Fine-tuning and evaluating transformer models on Natural Language Inference (NLI) benchmarks while leveraging GPU computing and reproducible machine learning workflows.",
+    ],
     url: "https://aiea-lab.github.io/",
   },
   {
-    title: "School Chapter President",
-    company: "Fulshear Historical Association",
-    date: "April 2025 - May 2026",
-    description:
-      "Founded the first student-led chapter, organized biweekly research projects, and coordinated regional collaborations with neighboring chapters.",
+    title: "Software Engineer Intern",
+    company: "Stealth Startup",
+    location: "Remote",
+    date: "June 2025 – Aug. 2025",
+    details: [
+      "Built and shipped end-to-end features for an AI-powered web application using React, TypeScript, Python, and FastAPI, translating evolving product requirements into production-ready software.",
+      "Developed REST APIs and asynchronous data pipelines integrating third-party LLM services with PostgreSQL to support reliable, low-latency production workloads.",
+      "Improved reliability with automated testing, CI/CD, structured logging, and performance monitoring.",
+    ],
   },
   {
-    title: "Math Instructor",
-    company: "Mathnasium",
-    date: "July 2025 - February 2026",
-    description:
-      "Taught 200+ K-12 students in small groups across arithmetic, algebra, and geometry while adapting explanations to different learning styles.",
+    title: "Research Intern",
+    company: "University of Notre Dame",
+    location: "South Bend, IN",
+    date: "June 2025 – Aug. 2025",
+    details: [
+      "Conducted quantitative research on relationships between corporate practices, performance, and stakeholder outcomes.",
+      "Applied linear regression and data visualization in R to analyze how governance, compensation, and investment decisions relate to financial and social performance.",
+      "Presented regression methodology, limitations, and business implications to faculty and fellows at a research symposium.",
+    ],
   },
   {
     title: "Independent Researcher",
     company: "Peaceful Unification Advisory Council",
-    date: "September 2024 - April 2025",
-    description:
-      "Authored a mixed-methods research paper on Korean-American perspectives on reunification, using bilingual survey design and statistical analysis in SPSS.",
-  },
-  {
-    title: "Business: What is it Good For? Seminar",
-    company: "Notre Dame Leadership Seminars",
-    date: "July 2025",
-    description:
-      "Selected as 1 of 30 students for an all-expenses-paid business and economics seminar and produced a capstone on the moral purpose of business.",
+    location: "Houston, TX",
+    date: "Sept. 2024 – Apr. 2025",
+    details: [
+      "Authored a mixed-methods study of generational differences in Korean-American views on reunification.",
+      "Performed statistical analyses (ANOVA, chi-square, Cohen’s d) in SPSS to identify significant generational differences.",
+    ],
   },
 ];
 
 export const education: Education[] = [
   {
-    title: "B.S. Computational & Applied Mathematics and Computer Science",
+    title: "B.S. in Computational & Applied Mathematics and Computer Science",
     school: "University of Chicago",
+    location: "Chicago, IL",
     date: "Expected June 2029",
-    description:
-      "Specializing in machine learning and participating in the AI, CS, & Data Science Career Cohort and NYC Business CEW.",
+    details: [
+      { label: "Specializations", value: "Machine Learning" },
+      { label: "Activities", value: "AI, CS, & Data Science Career Cohort; NYC Business CEW" },
+      { label: "Relevant Coursework", value: "Data Structures & Algorithms; Systems Programming; Abstract Linear Algebra; Statistical Methods & Applications; Honors Proof-Based Calculus I–II" },
+      { label: "Honors", value: "University Scholar (Merit Scholarship)" },
+    ],
   },
   {
     title: "High School Diploma, GPA 4.86/4.0, SAT 1600",
     school: "Jordan High School",
     date: "",
-    description:
-      "Relevant Coursework: Multivariable Calculus, Computer Science III: Data Structures, Elements of Data Science, AWS Advanced Cloud Computing, AP Computer Science A (5), AP Calculus BC (5), AP Statistics (5), AP Physics 1 (5)",
+    details: [
+      { label: "Relevant Coursework", value: "Multivariable Calculus; Computer Science III: Data Structures; Elements of Data Science; AWS Advanced Cloud Computing; AP Computer Science A (5); AP Calculus BC (5); AP Statistics (5); AP Physics 1 (5)" },
+    ],
   },
 ];
 
@@ -315,9 +330,17 @@ export const skills: SkillCategory[] = [
           "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
       },
       {
-        name: "Computing in Python I-II",
+        name: "Systems Programming",
         iconUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+      },
+      {
+        name: "Abstract Linear Algebra",
+        iconUrl: "/math-sigma.svg",
+      },
+      {
+        name: "Statistical Methods & Applications",
+        iconUrl: "/math-sigma.svg",
       },
       {
         name: "Proof-Based Honors Calculus I-III",

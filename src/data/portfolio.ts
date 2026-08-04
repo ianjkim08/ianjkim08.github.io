@@ -170,7 +170,7 @@ export const education: Education[] = [
     title: "B.S. in Computational & Applied Mathematics and Computer Science",
     school: "University of Chicago",
     location: "Chicago, IL",
-    date: "Expected June 2029",
+    date: "Expected June 2028",
     details: [
       { label: "Specializations", value: "Machine Learning" },
       { label: "Activities", value: "AI, CS, & Data Science Career Cohort; NYC Business CEW" },
